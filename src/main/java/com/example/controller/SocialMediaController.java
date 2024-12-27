@@ -119,8 +119,22 @@ public class SocialMediaController {
     //PathVariable, RequestBody
     @PatchMapping("/messages/{messageId}")
     @ResponseBody 
-    public ResponseEntity<Integer> updateMessageById(@PathVariable int messageId, @RequestBody Map<String, String> msg_text){
-        Integer updatedRows = msgServ.updateMessageById(messageId, msg_text.get("messageText"));
+    public ResponseEntity<?> updateTicketById(@PathVariable String messageId, @RequestBody Map<String, String> msg_text){
+        int id = Integer.parseInt(messageId);
+        Integer updatedRows = msgServ.updateMessageById(id, msg_text.get("messageText"));
+        if(updatedRows==null){
+            return ResponseEntity.status(400).build();
+        } else{
+            return ResponseEntity.status(200).body(updatedRows);           
+        }
+    }
+
+    //User Story 7 PATCH;localhost:8080/messages/{messageId}
+    //PathVariable, RequestBody
+    @PatchMapping("/messages/approve/{messageId}")
+    @ResponseBody 
+    public ResponseEntity<?> updateApproveById(@PathVariable int messageId){
+        Integer updatedRows = msgServ.updateMessageById(messageId, "approved");
         if(updatedRows==null){
             return ResponseEntity.status(400).build();
         } else{

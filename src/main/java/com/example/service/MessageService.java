@@ -50,7 +50,7 @@ public class MessageService {
             return retMessage;
         } else{
             return null;
-        }        
+        }
     }
     
     //User Story 6 
@@ -74,7 +74,7 @@ public class MessageService {
         if (optionalMsg.isPresent()){
             if (msgText.length()<=255 && !msgText.isEmpty()){
                 Ticket retMessage = optionalMsg.get();
-                retMessage.setMessageText(msgText);
+                retMessage.setResState(msgText);
                 msgRep.save(retMessage);
                 return 1;
             }
@@ -83,6 +83,21 @@ public class MessageService {
             return null;
         }    
     }
+
+    // //User Story 7 
+    // public Integer updateApproveById(int id){
+    //     Optional<Ticket> optionalMsg = msgRep.findById(id);
+    //     if (optionalMsg.isPresent()){
+    //             Ticket retMessage = optionalMsg.get();
+    //             retMessage.setResState(msgText);
+    //             msgRep.save(retMessage);
+    //             return 1;
+    //         }
+    //         return null;
+    //     } else{
+    //         return null;
+    //     }    
+    // }
 
     //User Story 8 
     public List<Ticket> getMessagesByPostedId(int accId){

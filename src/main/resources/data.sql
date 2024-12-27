@@ -29,6 +29,11 @@ create table userAccount (
 -- UPDATE message SET messageid = DEFAULT;
 
 insert into account (username, password, occupation) values ('testuser1', 'password', 'employee');
+insert into account (username, password, occupation) values ('testuser2', 'password', 'manager');
+insert into account (username, password, occupation) values ('testuser3', 'password', 'employee');
+
 -- insert into account (username, password) values ('testuser1', 'password');
 insert into userAccount (username, password) values ('testuser1', 'password');
 insert into ticket (postedBy, messageText, resState, amount) values (1,'test message 1','pending', 20);
+insert into ticket (postedBy, messageText, resState, amount) values (1,'test message 2','pending', 40);
+insert into ticket (postedBy, messageText, resState, amount) values (1,'test message 3','approved', 60);

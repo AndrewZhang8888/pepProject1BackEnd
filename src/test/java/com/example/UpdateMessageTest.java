@@ -51,7 +51,7 @@ public class UpdateMessageTest {
     public void updateMessageSuccessful() throws IOException, InterruptedException {
     	String json = "{\"messageText\": \"text changed\"}";
         HttpRequest postMessageRequest = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080/messages/9999"))
+                .uri(URI.create("http://localhost:8080/messages/1"))
                 .method("PATCH", HttpRequest.BodyPublishers.ofString(json))
                 .header("Content-Type", "application/json")
                 .build();

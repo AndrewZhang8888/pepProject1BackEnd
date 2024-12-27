@@ -80,7 +80,7 @@ public class Ticket {
      * Properly named getters and setters are necessary for Jackson ObjectMapper to work. You may use them as well.
      * @param messageId
      */
-    public void setTicketIdId(Integer messageId) {
+    public void setTicketId(Integer messageId) {
         this.ticketId = messageId;
     }
     /**
@@ -131,6 +131,16 @@ public class Ticket {
      * @param o the other object.
      * @return true if o is equal to this object.
      */
+    public int getAmount() {
+        return amount;
+    }
+    /**
+     * Properly named getters and setters are necessary for Jackson ObjectMapper to work. You may use them as well.
+     * @param resState
+     */
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -160,6 +170,9 @@ public class Ticket {
 				return false;
 		} else if (!resState.equals(other.resState))
 			return false;
+        if (amount != other.amount) {
+            return false;
+        }
 		return true;
 	}
 	

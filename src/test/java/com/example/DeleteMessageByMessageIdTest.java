@@ -50,7 +50,7 @@ public class DeleteMessageByMessageIdTest {
     @Test
     public void deleteMessageGivenMessageIdMessageFound() throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080/messages/9999"))
+                .uri(URI.create("http://localhost:8080/messages/1"))
                 .DELETE()
                 .build();
         HttpResponse<String> response = webClient.send(request, HttpResponse.BodyHandlers.ofString());
